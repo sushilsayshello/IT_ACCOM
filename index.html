@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sushil Shakya | IT Applications Support Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1e293b;
+      --slate: #475569;
+      --sand: #f8fafc;
+      --cream: #fff7ed;
+      --coral: #f97316;
+      --coral-light: #ffedd5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --sky: #e0f2fe;
+      --blue: #2563eb;
+      --lavender: #e0e7ff;
+      --purple: #7c3aed;
+      --white: #ffffff;
+      --shadow: 0 10px 40px rgba(30, 41, 59, 0.08);
+      --shadow-hover: 0 20px 60px rgba(30, 41, 59, 0.12);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      background: var(--sand);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1100px, 92%); margin: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(203, 213, 225, 0.4);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--navy);
+    }
+
+    .logo-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--coral), var(--teal));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+    }
+
+    .nav-links a { position: relative; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--coral); border-radius: 2px; transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .status-badge {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 14px; background: var(--teal-light);
+      border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--teal);
+    }
+
+    .status-dot {
+      width: 8px; height: 8px; background: var(--teal);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    .hero {
+      padding: 80px 0 60px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--coral-light) 0%, transparent 70%);
+      opacity: 0.6; pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--teal-light) 0%, transparent 70%);
+      opacity: 0.5; pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px; align-items: center; position: relative; z-index: 2;
+    }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 999px;
+      background: var(--coral-light); color: var(--coral);
+      font-size: 13px; font-weight: 700; margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 5.5vw, 64px);
+      line-height: 1.05; color: var(--navy); margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px; color: var(--slate);
+      max-width: 540px; margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex; gap: 14px; margin-bottom: 40px; flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px; border-radius: 14px;
+      font-weight: 700; font-size: 15px; border: none;
+      cursor: pointer; transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--navy); color: white;
+      box-shadow: 0 8px 25px rgba(30, 41, 59, 0.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(30, 41, 59, 0.3); }
+
+    .btn-secondary {
+      background: white; color: var(--navy);
+      border: 2px solid rgba(203, 213, 225, 0.6);
+    }
+    .btn-secondary:hover { border-color: var(--coral); color: var(--coral); }
+
+    .hero-stats { display: flex; gap: 32px; }
+    .hero-stat strong {
+      display: block; font-size: 28px; color: var(--navy);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .hero-stat span { font-size: 13px; color: var(--slate); }
+
+    .hero-visual { position: relative; }
+
+    .building-card {
+      background: white; border-radius: 28px; padding: 24px;
+      box-shadow: var(--shadow); border: 1px solid rgba(203, 213, 225, 0.4);
+    }
+
+    .building-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .building-header h3 { font-size: 16px; color: var(--navy); }
+
+    .live-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; color: var(--teal);
+      background: var(--teal-light); padding: 4px 10px; border-radius: 999px;
+    }
+
+    .building-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    }
+
+    .room {
+      aspect-ratio: 1; border-radius: 12px;
+      display: grid; place-items: center; font-size: 20px;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .room.occupied {
+      background: linear-gradient(135deg, var(--teal), #14b8a6);
+      color: white; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+    }
+    .room.vacant {
+      background: var(--sand);
+      border: 2px dashed rgba(203, 213, 225, 0.6);
+      color: var(--slate);
+    }
+    .room:hover { transform: scale(1.08); }
+
+    .building-footer {
+      display: flex; justify-content: space-between;
+      margin-top: 16px; padding-top: 16px;
+      border-top: 1px solid rgba(203, 213, 225, 0.3);
+      font-size: 12px; color: var(--slate);
+    }
+    .building-footer strong { color: var(--navy); }
+
+    section { padding: 70px 0; }
+
+    .section-header {
+      text-align: center; max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    .section-header h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      color: var(--navy); margin-bottom: 12px;
+    }
+    .section-header p { color: var(--slate); font-size: 17px; }
+
+    .cards-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+
+    .card {
+      background: white; border-radius: var(--radius); padding: 28px;
+      box-shadow: var(--shadow); border: 1px solid rgba(203, 213, 225, 0.3);
+      transition: all 0.3s;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+
+    .card-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: grid; place-items: center; font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 { font-size: 19px; color: var(--navy); margin-bottom: 12px; }
+    .card p, .card li { color: var(--slate); font-size: 14px; line-height: 1.7; }
+    .card ul { padding-left: 18px; margin-top: 8px; }
+    .card li { margin-bottom: 6px; }
+
+    .skills-section { background: linear-gradient(180deg, var(--sand) 0%, white 50%, var(--sand) 100%); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    .skill-tag {
+      background: white; border: 2px solid rgba(203, 213, 225, 0.4);
+      border-radius: 16px; padding: 16px; text-align: center;
+      font-weight: 700; font-size: 14px; color: var(--navy);
+      transition: all 0.2s; cursor: default;
+    }
+    .skill-tag:hover {
+      border-color: var(--coral); color: var(--coral);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.1);
+    }
+
+    .exp-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .exp-card {
+      background: white; border-radius: var(--radius); padding: 28px;
+      box-shadow: var(--shadow); border: 1px solid rgba(203, 213, 225, 0.3);
+      transition: all 0.3s;
+    }
+    .exp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+    .exp-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .exp-company {
+      font-size: 13px; font-weight: 700; color: var(--coral);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
+    }
+    .exp-role { font-size: 18px; font-weight: 700; color: var(--navy); }
+    .exp-date {
+      font-size: 12px; color: var(--slate); background: var(--sand);
+      padding: 4px 12px; border-radius: 999px; white-space: nowrap;
+    }
+    .exp-card p { color: var(--slate); font-size: 14px; line-height: 1.7; }
+    .exp-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+    }
+    .exp-tag {
+      font-size: 11px; font-weight: 600; padding: 4px 10px;
+      border-radius: 8px; background: var(--teal-light); color: var(--teal);
+    }
+
+    .games-section {
+      background: linear-gradient(135deg, var(--lavender) 0%, var(--sky) 50%, var(--cream) 100%);
+      position: relative; overflow: hidden;
+    }
+    .games-section::before {
+      content: '🏠'; position: absolute; top: 40px; right: 60px;
+      font-size: 120px; opacity: 0.08; transform: rotate(-15deg);
+    }
+    .games-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .game-card {
+      background: white; border-radius: var(--radius); padding: 24px;
+      box-shadow: var(--shadow); border: 1px solid rgba(203, 213, 225, 0.3);
+    }
+    .game-card h3 {
+      font-size: 18px; color: var(--navy); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .game-card p { font-size: 13px; color: var(--slate); margin-bottom: 16px; }
+
+    /* Game 1: Room Match */
+    .memory-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+      margin-bottom: 12px;
+    }
+    .memory-card {
+      aspect-ratio: 1; border-radius: 12px;
+      background: linear-gradient(135deg, var(--navy), #334155);
+      display: grid; place-items: center; font-size: 24px;
+      cursor: pointer; transition: all 0.3s;
+      border: none; user-select: none;
+    }
+    .memory-card:hover { transform: scale(1.05); }
+    .memory-card.flipped {
+      background: white; border: 2px solid var(--coral); font-size: 28px;
+    }
+    .memory-card.matched {
+      background: var(--teal-light); border: 2px solid var(--teal);
+      animation: matchPop 0.4s ease;
+    }
+    @keyframes matchPop {
+      0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); }
+    }
+
+    /* Game 2: Triage Rush */
+    .triage-area {
+      height: 220px; background: var(--sand); border-radius: 16px;
+      position: relative; overflow: hidden; margin-bottom: 12px;
+      border: 2px solid rgba(203, 213, 225, 0.4);
+    }
+    .ticket {
+      position: absolute; padding: 8px 14px; border-radius: 10px;
+      font-size: 12px; font-weight: 700; cursor: pointer;
+      transition: transform 0.1s; white-space: nowrap;
+    }
+    .ticket:hover { transform: scale(1.1); }
+    .ticket.urgent {
+      background: #fee2e2; color: #dc2626; border: 2px solid #fecaca;
+    }
+    .ticket.routine {
+      background: #dbeafe; color: #2563eb; border: 2px solid #bfdbfe;
+    }
+    .ticket.spam {
+      background: #f3f4f6; color: #9ca3af; border: 2px dashed #d1d5db;
+    }
+    @keyframes ticketFloat {
+      from { top: -40px; } to { top: 240px; }
+    }
+    .triage-controls { display: flex; gap: 8px; margin-bottom: 12px; }
+    .triage-btn {
+      flex: 1; padding: 10px; border-radius: 10px; border: 2px solid;
+      font-weight: 700; font-size: 12px; cursor: pointer; transition: all 0.2s;
+    }
+    .triage-btn.urgent-btn { background: #fee2e2; border-color: #fecaca; color: #dc2626; }
+    .triage-btn.routine-btn { background: #dbeafe; border-color: #bfdbfe; color: #2563eb; }
+    .triage-btn.spam-btn { background: #f3f4f6; border-color: #e5e7eb; color: #6b7280; }
+    .triage-btn.active { transform: scale(0.95); box-shadow: inset 0 2px 8px rgba(0,0,0,0.1); }
+
+    /* Game 3: Occupancy Fill */
+    .occ-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+      margin-bottom: 12px;
+    }
+    .occ-cell {
+      aspect-ratio: 1; border-radius: 10px; background: white;
+      border: 2px solid rgba(203, 213, 225, 0.4);
+      display: grid; place-items: center; font-size: 20px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .occ-cell.filled {
+      background: linear-gradient(135deg, var(--coral), #fb923c);
+      border-color: var(--coral); color: white;
+      animation: fillPop 0.3s ease;
+    }
+    @keyframes fillPop {
+      0% { transform: scale(0.8); } 50% { transform: scale(1.1); } 100% { transform: scale(1); }
+    }
+    .occ-target {
+      text-align: center; font-size: 14px; font-weight: 700;
+      color: var(--navy); margin-bottom: 12px;
+    }
+    .occ-target span { color: var(--coral); font-size: 24px; }
+
+    .game-score {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; font-weight: 600; color: var(--slate);
+    }
+    .game-btn {
+      padding: 8px 16px; border-radius: 10px; border: none;
+      background: var(--coral); color: white; font-weight: 700;
+      font-size: 12px; cursor: pointer; transition: all 0.2s;
+    }
+    .game-btn:hover { background: #ea580c; transform: scale(1.05); }
+
+    .contact-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+      color: white; position: relative; overflow: hidden;
+    }
+    .contact-section::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; position: relative; z-index: 2;
+    }
+    .contact-info h2 { font-size: 40px; margin-bottom: 16px; }
+    .contact-info p { color: rgba(255, 255, 255, 0.7); font-size: 17px; margin-bottom: 32px; }
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; background: rgba(255, 255, 255, 0.08);
+      border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s;
+    }
+    .contact-link:hover { background: rgba(255, 255, 255, 0.14); transform: translateX(4px); }
+    .contact-link-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      display: grid; place-items: center; font-size: 18px;
+    }
+    .contact-link-text strong { display: block; font-size: 15px; margin-bottom: 2px; }
+    .contact-link-text span { font-size: 13px; color: rgba(255, 255, 255, 0.6); }
+
+    .contact-visual {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 28px; padding: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .contact-visual h3 {
+      font-size: 18px; margin-bottom: 20px; color: rgba(255, 255, 255, 0.9);
+    }
+    .availability-bar {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    }
+    .availability-bar .status-dot {
+      background: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+    }
+    .availability-bar span { font-size: 14px; color: rgba(255, 255, 255, 0.8); }
+    .quick-facts {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .quick-fact {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px; padding: 14px; text-align: center;
+    }
+    .quick-fact strong {
+      display: block; font-size: 20px; color: var(--coral); margin-bottom: 4px;
+    }
+    .quick-fact span { font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+
+    footer {
+      padding: 30px 0; text-align: center; color: var(--slate);
+      font-size: 13px; background: var(--sand);
+      border-top: 1px solid rgba(203, 213, 225, 0.3);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); }
+      .exp-grid { grid-template-columns: 1fr; }
+      .games-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-stats { gap: 20px; }
+      .hero-stat strong { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#home" class="logo">
+        <div class="logo-avatar">S</div>
+        <span>Sushil Shakya</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#games">Games</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span>Open to Work</span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="pill">🎯 IT Applications Support Analyst</span>
+        <h1>Systems, Support & Smarter Operations</h1>
+        <p class="hero-subtitle">
+          I bridge technology and accommodation operations — managing enterprise apps, automating workflows with Power Platform, building reports in Power BI & SQL, and keeping residents happy.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">📧 Get In Touch</a>
+          <a href="#games" class="btn btn-secondary">🎮 Try My Games</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>5+</strong><span>Years Experience</span></div>
+          <div class="hero-stat"><strong>2000+</strong><span>Users Supported</span></div>
+          <div class="hero-stat"><strong>3x</strong><span>Hackathon Winner</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="building-card">
+          <div class="building-header">
+            <h3>🏢 Portfolio Tower — Live Occupancy</h3>
+            <span class="live-badge"><div class="status-dot"></div>LIVE</span>
+          </div>
+          <div class="building-grid" id="heroBuilding">
+            <div class="room occupied">👤</div><div class="room vacant"></div><div class="room occupied">👤</div>
+            <div class="room occupied">👤</div><div class="room vacant"></div><div class="room occupied">👤</div>
+            <div class="room occupied">👤</div><div class="room vacant"></div><div class="room occupied">👤</div>
+          </div>
+          <div class="building-footer">
+            <span>Occupancy: <strong>67%</strong></span>
+            <span>Systems: <strong style="color: var(--teal);">All Online</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <h2>What I Do Best</h2>
+      <p>Hands-on technical support across the full application lifecycle — from ticket triage to automation to executive reporting.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon" style="background: var(--sky); color: var(--blue);">🖥️</div>
+        <h3>Application Support</h3>
+        <ul>
+          <li>Level 1 & 2 application troubleshooting</li>
+          <li>Incident management via Zendesk / ITSM</li>
+          <li>User onboarding & access provisioning</li>
+          <li>System configuration & workflow setup</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--teal-light); color: var(--teal);">📊</div>
+        <h3>Reporting & Analytics</h3>
+        <ul>
+          <li>SQL queries for operational datasets</li>
+          <li>Power BI dashboards & DAX measures</li>
+          <li>Excel Power Query & data transformation</li>
+          <li>Executive KPI reporting & visualisation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--coral-light); color: var(--coral);">⚡</div>
+        <h3>Automation & Workflows</h3>
+        <ul>
+          <li>Microsoft Power Automate flows</li>
+          <li>Business process optimisation</li>
+          <li>Stripe / NetSuite reconciliation</li>
+          <li>Onboarding & compliance automation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--lavender); color: var(--purple);">🗄️</div>
+        <h3>Systems Administration</h3>
+        <ul>
+          <li>StarRez CRM administration</li>
+          <li>Zendesk ticket management</li>
+          <li>NetSuite ERP workflows</li>
+          <li>SharePoint & Salesforce management</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: #fce7f3; color: #db2777;">🔐</div>
+        <h3>Compliance & Data</h3>
+        <ul>
+          <li>P100 resident verification checks</li>
+          <li>Documentation & audit trails</li>
+          <li>Account reconciliation & arrears</li>
+          <li>Operational compliance workflows</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: #fef3c7; color: #d97706;">🌐</div>
+        <h3>Stakeholder Support</h3>
+        <ul>
+          <li>Cross-functional team collaboration</li>
+          <li>Contractor & vendor coordination</li>
+          <li>Training & knowledge sharing</li>
+          <li>Resident & staff systems support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="section-header">
+      <h2>Technical Toolkit</h2>
+      <p>Enterprise applications, data tools, and automation platforms I work with daily.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-tag">🗃️ SQL</div>
+      <div class="skill-tag">📈 Power BI</div>
+      <div class="skill-tag">🤖 Power Automate</div>
+      <div class="skill-tag">📱 Power Apps</div>
+      <div class="skill-tag">🏠 StarRez</div>
+      <div class="skill-tag">🎫 Zendesk</div>
+      <div class="skill-tag">💳 Stripe</div>
+      <div class="skill-tag">📊 NetSuite</div>
+      <div class="skill-tag">☁️ Salesforce</div>
+      <div class="skill-tag">📁 SharePoint</div>
+      <div class="skill-tag">🐍 Python</div>
+      <div class="skill-tag">📜 JavaScript</div>
+      <div class="skill-tag">📝 Excel / Power Query</div>
+      <div class="skill-tag">🔌 REST APIs</div>
+      <div class="skill-tag">🎯 Jira</div>
+      <div class="skill-tag">📋 ServiceNow</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <h2>Systems Experience</h2>
+      <p>Progressive technology roles across enterprise residential platforms.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">UniLodge Living Group</div>
+            <div class="exp-role">Customer Support & Systems Coordinator</div>
+          </div>
+          <span class="exp-date">Current</span>
+        </div>
+        <p>
+          Administer StarRez CRM across multi-site portfolio. Manage Stripe payment gateway integration — dynamic links, transaction reconciliation, failed payment resolution. Deliver Tier 1/2 support via Zendesk with 95% first-contact resolution. Automate onboarding workflows with SharePoint + Power Automate.
+        </p>
+        <div class="exp-tags">
+          <span class="exp-tag">StarRez</span>
+          <span class="exp-tag">Zendesk</span>
+          <span class="exp-tag">Stripe API</span>
+          <span class="exp-tag">Power Automate</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">University of Sydney Village</div>
+            <div class="exp-role">Administrator & Systems Analyst</div>
+          </div>
+          <span class="exp-date">Previous</span>
+        </div>
+        <p>
+          Managed NetSuite ERP operational modules: purchase orders, vendor onboarding, procurement workflows. Built resident account reconciliation engine using SQL + Power Query — 1000+ accounts monthly at 99.8% accuracy. Administered P100 verification system with automated compliance checks and audit trails.
+        </p>
+        <div class="exp-tags">
+          <span class="exp-tag">NetSuite</span>
+          <span class="exp-tag">SQL</span>
+          <span class="exp-tag">Power Query</span>
+          <span class="exp-tag">P100</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Western Sydney University Villages</div>
+            <div class="exp-role">Residential Technology & Engagement Manager</div>
+          </div>
+          <span class="exp-date">Previous</span>
+        </div>
+        <p>
+          Designed resident engagement platform architecture with partner brand integration APIs and digital communication pipelines. Managed enrolment verification automation, reducing manual verification by 50%. Coordinated emergency response technology protocols and automated alert systems.
+        </p>
+        <div class="exp-tags">
+          <span class="exp-tag">System Design</span>
+          <span class="exp-tag">API Integration</span>
+          <span class="exp-tag">Automation</span>
+          <span class="exp-tag">Workforce Mgmt</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">UNSW Village</div>
+            <div class="exp-role">Customer Support & Ticketing Specialist</div>
+          </div>
+          <span class="exp-date">Previous</span>
+        </div>
+        <p>
+          Delivered multi-channel technical support via Zendesk, phone, email, and live chat — processed 50+ tickets daily with structured categorization and priority routing. Maintained knowledge base articles and SOP documentation, improving team resolution consistency by 30%.
+        </p>
+        <div class="exp-tags">
+          <span class="exp-tag">Zendesk</span>
+          <span class="exp-tag">Ticketing</span>
+          <span class="exp-tag">Knowledge Base</span>
+          <span class="exp-tag">SLA Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="games-section" id="games">
+  <div class="container">
+    <div class="section-header">
+      <h2>🏠 Accommodation Arcade</h2>
+      <p>Fun mini-games inspired by the industry I work in. Give them a try!</p>
+    </div>
+    <div class="games-grid">
+
+      <!-- Game 1: Room Memory Match -->
+      <div class="game-card">
+        <h3>🧩 Room Memory Match</h3>
+        <p>Flip cards to match room types with their amenities. Find all pairs to win!</p>
+        <div class="memory-grid" id="memoryGrid"></div>
+        <div class="game-score">
+          <span>Moves: <strong id="memoryMoves">0</strong></span>
+          <span>Matches: <strong id="memoryMatches">0</strong>/6</span>
+          <button class="game-btn" onclick="initMemoryGame()">🔄 Reset</button>
+        </div>
+      </div>
+
+      <!-- Game 2: Ticket Triage Rush -->
+      <div class="game-card">
+        <h3>🎫 Ticket Triage Rush</h3>
+        <p>Click the <strong style="color:#dc2626">URGENT</strong> tickets before they fall! Avoid routine and spam.</p>
+        <div class="triage-area" id="triageArea"></div>
+        <div class="triage-controls">
+          <button class="triage-btn urgent-btn" id="urgentBtn" onclick="setTriageMode('urgent')">🔴 URGENT</button>
+          <button class="triage-btn routine-btn" id="routineBtn" onclick="setTriageMode('routine')">🔵 ROUTINE</button>
+          <button class="triage-btn spam-btn" id="spamBtn" onclick="setTriageMode('spam')">⚪ SPAM</button>
+        </div>
+        <div class="game-score">
+          <span>Score: <strong id="triageScore">0</strong></span>
+          <span>Level: <strong id="triageLevel">1</strong></span>
+          <button class="game-btn" onclick="startTriageGame()">▶️ Start</button>
+        </div>
+      </div>
+
+      <!-- Game 3: Occupancy Filler -->
+      <div class="game-card">
+        <h3>🏢 Occupancy Filler</h3>
+        <p>Fill the building to hit the target occupancy. Click empty rooms to place residents!</p>
+        <div class="occ-target">Target: <span id="occTarget">70%</span> | Current: <span id="occCurrent">0%</span></div>
+        <div class="occ-grid" id="occGrid"></div>
+        <div class="game-score">
+          <span>Round: <strong id="occRound">1</strong></span>
+          <span>Streak: <strong id="occStreak">0</strong></span>
+          <button class="game-btn" onclick="initOccGame()">🔄 New Round</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Let's Build Something Great</h2>
+        <p>Available for IT Applications Support, Systems Analyst, and Technology Operations roles in Sydney. Particularly aligned with residential technology and PropTech teams.</p>
+        <div class="contact-links">
+          <a href="mailto:sushilsayshello@gmail.com" class="contact-link">
+            <div class="contact-link-icon">📧</div>
+            <div class="contact-link-text">
+              <strong>sushilsayshello@gmail.com</strong>
+              <span>Send me an email</span>
+            </div>
+          </a>
+          <a href="tel:+61401851971" class="contact-link">
+            <div class="contact-link-icon">📱</div>
+            <div class="contact-link-text">
+              <strong>+61 401 851 971</strong>
+              <span>Call or text anytime</span>
+            </div>
+          </a>
+          <div class="contact-link" style="cursor: default;">
+            <div class="contact-link-icon">📍</div>
+            <div class="contact-link-text">
+              <strong>Sydney, NSW</strong>
+              <span>Available locally</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-visual">
+        <h3>📋 Quick Facts</h3>
+        <div class="availability-bar">
+          <div class="status-dot"></div>
+          <span>Available for immediate start</span>
+        </div>
+        <div class="quick-facts">
+          <div class="quick-fact">
+            <strong>5+</strong>
+            <span>Years Exp.</span>
+          </div>
+          <div class="quick-fact">
+            <strong>95%</strong>
+            <span>Ticket SLA</span>
+          </div>
+          <div class="quick-fact">
+            <strong>3x</strong>
+            <span>Hackathon Wins</span>
+          </div>
+          <div class="quick-fact">
+            <strong>B.IT</strong>
+            <span>Victoria Uni</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Sushil Shakya • IT Applications Support Analyst • Sydney, NSW • Built with HTML, CSS & Caffeine ☕
+  </div>
+</footer>
+
+<script>
+// ===== HERO BUILDING ANIMATION =====
+function animateHeroBuilding() {
+  const rooms = document.querySelectorAll('#heroBuilding .room');
+  rooms.forEach((room, i) => {
+    setTimeout(() => {
+      if (room.classList.contains('vacant')) {
+        room.style.opacity = '0.5';
+        setTimeout(() => { room.style.opacity = '1'; }, 300);
+      } else {
+        room.style.transform = 'scale(1.15)';
+        setTimeout(() => { room.style.transform = 'scale(1)'; }, 300);
+      }
+    }, i * 200);
+  });
+}
+setInterval(animateHeroBuilding, 5000);
+
+// ===== SCROLL REVEAL =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card, .exp-card, .skill-tag, .game-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = `all 0.5s ease ${i * 0.03}s`;
+  observer.observe(el);
+});
+
+// ===== GAME 1: MEMORY MATCH =====
+const memoryIcons = ['🛏️','🛏️','🚿','🚿','📶','📶','🔑','🔑','🍳','🍳','📺','📺'];
+let memoryCards = [], memoryFlipped = [], memoryMatched = [], memoryMoves = 0;
+
+function initMemoryGame() {
+  const grid = document.getElementById('memoryGrid');
+  grid.innerHTML = '';
+  memoryFlipped = []; memoryMatched = []; memoryMoves = 0;
+  document.getElementById('memoryMoves').textContent = '0';
+  document.getElementById('memoryMatches').textContent = '0';
+
+  const shuffled = [...memoryIcons].sort(() => Math.random() - 0.5);
+  shuffled.forEach((icon, i) => {
+    const card = document.createElement('div');
+    card.className = 'memory-card';
+    card.dataset.icon = icon;
+    card.dataset.index = i;
+    card.textContent = '?';
+    card.onclick = () => flipMemoryCard(card);
+    grid.appendChild(card);
+  });
+}
+
+function flipMemoryCard(card) {
+  if (card.classList.contains('flipped') || card.classList.contains('matched') || memoryFlipped.length >= 2) return;
+
+  card.classList.add('flipped');
+  card.textContent = card.dataset.icon;
+  memoryFlipped.push(card);
+
+  if (memoryFlipped.length === 2) {
+    memoryMoves++;
+    document.getElementById('memoryMoves').textContent = memoryMoves;
+
+    const [a, b] = memoryFlipped;
+    if (a.dataset.icon === b.dataset.icon) {
+      setTimeout(() => {
+        a.classList.remove('flipped');
+        b.classList.remove('flipped');
+        a.classList.add('matched');
+        b.classList.add('matched');
+        memoryMatched.push(a, b);
+        memoryFlipped = [];
+        document.getElementById('memoryMatches').textContent = memoryMatched.length / 2;
+        if (memoryMatched.length === 12) {
+          setTimeout(() => alert('🏆 Congratulations! You matched all rooms! Refresh to play again.'), 300);
+        }
+      }, 500);
+    } else {
+      setTimeout(() => {
+        a.classList.remove('flipped');
+        b.classList.remove('flipped');
+        a.textContent = '?';
+        b.textContent = '?';
+        memoryFlipped = [];
+      }, 800);
+    }
+  }
+}
+
+// ===== GAME 2: TICKET TRIAGE RUSH =====
+let triageScore = 0, triageLevel = 1, triageActive = false, triageInterval;
+const ticketTypes = [
+  { type: 'urgent', text: '🔴 Leak Report', class: 'urgent' },
+  { type: 'urgent', text: '🔴 No Power', class: 'urgent' },
+  { type: 'urgent', text: '🔴 Lockout', class: 'urgent' },
+  { type: 'routine', text: '🔵 Light Fix', class: 'routine' },
+  { type: 'routine', text: '🔵 WiFi Slow', class: 'routine' },
+  { type: 'routine', text: '🔵 Cleaning', class: 'routine' },
+  { type: 'spam', text: '⚪ Newsletter', class: 'spam' },
+  { type: 'spam', text: '⚪ Promo', class: 'spam' },
+];
+let currentTriageMode = 'urgent';
+
+function setTriageMode(mode) {
+  currentTriageMode = mode;
+  document.querySelectorAll('.triage-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById(mode + 'Btn').classList.add('active');
+}
+
+function startTriageGame() {
+  if (triageActive) return;
+  triageActive = true;
+  triageScore = 0; triageLevel = 1;
+  document.getElementById('triageScore').textContent = '0';
+  document.getElementById('triageLevel').textContent = '1';
+  document.getElementById('triageArea').innerHTML = '';
+  setTriageMode('urgent');
+  spawnTickets();
+}
+
+function spawnTickets() {
+  const area = document.getElementById('triageArea');
+  const speed = Math.max(1500, 3000 - (triageLevel * 200));
+
+  triageInterval = setInterval(() => {
+    if (!triageActive) { clearInterval(triageInterval); return; }
+
+    const ticketData = ticketTypes[Math.floor(Math.random() * ticketTypes.length)];
+    const ticket = document.createElement('div');
+    ticket.className = 'ticket ' + ticketData.class;
+    ticket.textContent = ticketData.text;
+    ticket.style.left = Math.random() * 70 + '%';
+    ticket.style.animation = `ticketFloat ${speed/1000}s linear`;
+
+    ticket.onclick = () => handleTicketClick(ticket, ticketData.type);
+
+    area.appendChild(ticket);
+    setTimeout(() => { if (ticket.parentNode) ticket.remove(); }, speed);
+  }, Math.max(600, 1200 - (triageLevel * 80)));
+}
+
+function handleTicketClick(ticket, type) {
+  if (!triageActive) return;
+
+  if (type === currentTriageMode) {
+    triageScore += (type === 'urgent' ? 10 : type === 'routine' ? 5 : 2);
+    ticket.style.background = '#dcfce7';
+    ticket.style.color = '#16a34a';
+    ticket.style.borderColor = '#86efac';
+    ticket.textContent = '✅ ' + ticket.textContent;
+  } else {
+    triageScore -= 5;
+    ticket.style.background = '#fee2e2';
+    ticket.style.color = '#dc2626';
+    ticket.textContent = '❌ ' + ticket.textContent;
+  }
+
+  document.getElementById('triageScore').textContent = triageScore;
+
+  if (triageScore >= triageLevel * 50) {
+    triageLevel++;
+    document.getElementById('triageLevel').textContent = triageLevel;
+    clearInterval(triageInterval);
+    spawnTickets();
+  }
+
+  setTimeout(() => { if (ticket.parentNode) ticket.remove(); }, 400);
+}
+
+// ===== GAME 3: OCCUPANCY FILLER =====
+let occRound = 1, occStreak = 0, occTarget = 70, occFilled = 0;
+const occEmojis = ['👤','🎓','👨‍💻','🧑‍🎨','🏃','🍳'];
+
+function initOccGame() {
+  const grid = document.getElementById('occGrid');
+  grid.innerHTML = '';
+  occFilled = 0;
+  occTarget = Math.floor(Math.random() * 40) + 50; // 50-90%
+  document.getElementById('occTarget').textContent = occTarget + '%';
+  document.getElementById('occCurrent').textContent = '0%';
+
+  for (let i = 0; i < 20; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'occ-cell';
+    cell.dataset.index = i;
+    cell.onclick = () => fillOccCell(cell);
+    grid.appendChild(cell);
+  }
+}
+
+function fillOccCell(cell) {
+  if (cell.classList.contains('filled')) return;
+
+  cell.classList.add('filled');
+  cell.textContent = occEmojis[Math.floor(Math.random() * occEmojis.length)];
+  occFilled++;
+
+  const currentPct = Math.round((occFilled / 20) * 100);
+  document.getElementById('occCurrent').textContent = currentPct + '%';
+
+  if (currentPct >= occTarget) {
+    occStreak++;
+    document.getElementById('occStreak').textContent = occStreak;
+    setTimeout(() => {
+      alert('🎉 Target reached! You filled ' + currentPct + '% of the building!');
+      occRound++;
+      document.getElementById('occRound').textContent = occRound;
+      initOccGame();
+    }, 300);
+  }
+}
+
+// ===== INIT ALL GAMES ON LOAD =====
+window.addEventListener('DOMContentLoaded', () => {
+  initMemoryGame();
+  initOccGame();
+  setTriageMode('urgent');
+});
+</script>
+
+</body>
+</html>
